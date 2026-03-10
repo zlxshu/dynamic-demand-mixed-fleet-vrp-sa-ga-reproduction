@@ -1,0 +1,77 @@
+section43_repro_audit
+created_at=2026-02-11 17:12:21
+pass=false
+table_pass=false
+figure_pass=false
+gate_policy=two_stage
+table_precheck=false
+figure_check_triggered=false
+figure_check_reason=skipped_table_precheck_failed
+use_paper_test=true
+curve_aggregate=paired_run
+metric.minGSAA=10366.921300
+metric.minGA=10138.694968
+metric.minSA=10334.332070
+metric.minGapGA=2.251042
+metric.minGapSA=0.315349
+metric.rateGSAA=1.000000
+metric.rateGA=1.000000
+metric.rateSA=1.000000
+metric.saNanCount=0.000000
+metric.gsaaRecoveredCount=0.000000
+metric.gaRecoveredCount=0.000000
+metric.saRecoveredCount=0.000000
+metric.plateauTolRel=0.030000
+metric.plateauProgressRatio=0.800000
+metric.targetCostTolPct=0.020000
+metric.benchGA=183.566774
+metric.benchGSAA=210.227319
+metric.benchSA=256.662530
+metric.curveLastGSAA=10531.072295
+metric.curveLastGA=14775.683902
+metric.curveLastSA=11570.943197
+metric.gsaaDominanceRatio=0.930000
+metric.gsaaDominanceCount=279.000000
+metric.gsaaDominanceTotal=300.000000
+metric.plateauGSAA=22.000000
+metric.plateauGA=300.000000
+metric.plateauSA=2.000000
+metric.curvePolicy=paired_run
+metric.curveRunIdx=9.000000
+metric.figureRefSource=pdf_extract
+metric.figureRefSig=
+metric.resultSourceForTable=raw
+metric.dominanceSourcePolicy=paired_run
+metric.dominanceRunIdx=9.000000
+metric.algoSuiteResolved=paper_suite
+metric.figureRefAvailable=0
+metric.figureShapeScore=0.644895
+metric.figureAnchorMaxRelErr=NaN
+metric.figureEndpointMaxRelErr=NaN
+metric.curveMetaMissingCount=0.000000
+metric.dominanceHardEnable=0
+metric.dominanceMinRatio=0.950000
+score=30.75079931
+checks:
+- curve_meta_missing_diag | group=diag | pass=true | actual=missingCount=0 fields=none | expected=warn-only
+- GSAA_feasible_rate | group=table | pass=true | actual=1.00 | expected=>= 1.00
+- GA_feasible_rate | group=table | pass=true | actual=1.00 | expected=>= 1.00
+- SA_feasible_rate | group=table | pass=true | actual=1.00 | expected=>= 1.00
+- SA_nan_count | group=table | pass=true | actual=0 | expected=<= 0
+- cost_band_check | group=table | pass=true | actual=GSAA=10366.92, GA=10138.69, SA=10334.33 | expected=all in [8000.00, 20000.00]
+- target_cost_gsaa | group=table | pass=false | actual=10366.92 | expected=10048.89 ± 2.00%
+- target_cost_ga | group=table | pass=true | actual=10138.69 | expected=10204.41 ± 2.00%
+- target_cost_sa | group=table | pass=false | actual=10334.33 | expected=10070.96 ± 2.00%
+- paper_full_dominance_diag | group=diag | pass=true | actual=93.00% (279/300) | expected=ideal=100%% (diag only)
+- paper_order_check | group=table | pass=false | actual=GSAA=10366.92, GA=10138.69, SA=10334.33 | expected=GSAA <= GA and GSAA <= SA
+- gap_ga_vs_paper | group=table | pass=true | actual=2.2510 | expected=-1.5200 ± 5.0000
+- gap_sa_vs_paper | group=table | pass=true | actual=0.3153 | expected=-0.0800 ± 5.0000
+- time_order_check | group=table | pass=true | actual=GA=183.5668, GSAA=210.2273, SA=256.6625 | expected=GA(sum NRun) < GSAA(sum NRun) < SA(sum NRun)
+- figure_monotonic_basic_gate | group=figure | pass=true | actual=GSAA=1,GA=1,SA=1 | expected=all cummin non-increasing
+- figure_order_basic_gate | group=figure | pass=true | actual=GSAA=10531.0723, GA=14775.6839, SA=11570.9432 | expected=GSAA(300) <= GA(300) and GSAA(300) <= SA(300)
+- curve_plateau_diag_gsaa | group=diag | pass=true | actual=22 | expected=diag <= 80
+- curve_plateau_diag_ga | group=diag | pass=true | actual=300 | expected=diag <= 130
+- curve_plateau_diag_sa | group=diag | pass=true | actual=2 | expected=diag <= 130
+- paper_test_mode_notice | group=diag | pass=true | actual=SECTION43_USE_PAPER_TEST=true | expected=paper alignment checks enabled
+- figure_check_skipped_table_precheck | group=diag | pass=true | actual=tablePrecheck=false | expected=skip strict figure checks in two_stage
+fail_summary=target_cost_gsaa(actual=10366.92, expected=10048.89 ± 2.00%); target_cost_sa(actual=10334.33, expected=10070.96 ± 2.00%); paper_order_check(actual=GSAA=10366.92, GA=10138.69, SA=10334.33, expected=GSAA <= GA and GSAA <= SA)

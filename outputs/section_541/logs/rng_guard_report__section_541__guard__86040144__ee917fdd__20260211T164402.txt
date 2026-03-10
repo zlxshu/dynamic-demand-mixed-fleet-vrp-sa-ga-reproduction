@@ -1,0 +1,1 @@
+[rng_guard] OK: RNG restored

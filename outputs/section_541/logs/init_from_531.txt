@@ -1,0 +1,5 @@
+[init] no matching cache found -> auto run section_531 once
+       expect file token: runTag=default | paramSig=86040144 | dataSig=68fb354e
+[init] pick=/Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/outputs/section_531/mats/out__section_531__default__86040144__68fb354e__20260211T164402_autoFrom541.mat | cost=9930.123892 | feasible=1
+[init] cache hit: /Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/outputs/section_531/mats/out__section_531__default__86040144__ee917fdd__20260211T164402.mat
+[init] pick=/Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/outputs/section_531/mats/out__section_531__default__86040144__ee917fdd__20260211T164402.mat | cost=10388.862726 | feasible=1

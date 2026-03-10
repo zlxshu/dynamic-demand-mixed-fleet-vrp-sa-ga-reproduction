@@ -1,0 +1,77 @@
+section43_repro_audit
+created_at=2026-02-11 17:08:40
+pass=false
+table_pass=false
+figure_pass=false
+gate_policy=two_stage
+table_precheck=false
+figure_check_triggered=false
+figure_check_reason=skipped_table_precheck_failed
+use_paper_test=true
+curve_aggregate=paired_run
+metric.minGSAA=10728.689505
+metric.minGA=9722.100129
+metric.minSA=9957.549316
+metric.minGapGA=10.353621
+metric.minGapSA=7.744277
+metric.rateGSAA=1.000000
+metric.rateGA=1.000000
+metric.rateSA=1.000000
+metric.saNanCount=0.000000
+metric.gsaaRecoveredCount=0.000000
+metric.gaRecoveredCount=0.000000
+metric.saRecoveredCount=0.000000
+metric.plateauTolRel=0.030000
+metric.plateauProgressRatio=0.800000
+metric.targetCostTolPct=0.020000
+metric.benchGA=170.799028
+metric.benchGSAA=223.713476
+metric.benchSA=286.875297
+metric.curveLastGSAA=11112.219938
+metric.curveLastGA=11121.903682
+metric.curveLastSA=9957.549316
+metric.gsaaDominanceRatio=0.000000
+metric.gsaaDominanceCount=0.000000
+metric.gsaaDominanceTotal=300.000000
+metric.plateauGSAA=53.000000
+metric.plateauGA=84.000000
+metric.plateauSA=32.000000
+metric.curvePolicy=paired_run
+metric.curveRunIdx=5.000000
+metric.figureRefSource=pdf_extract
+metric.figureRefSig=
+metric.resultSourceForTable=raw
+metric.dominanceSourcePolicy=paired_run
+metric.dominanceRunIdx=5.000000
+metric.algoSuiteResolved=paper_suite
+metric.figureRefAvailable=0
+metric.figureShapeScore=0.706988
+metric.figureAnchorMaxRelErr=NaN
+metric.figureEndpointMaxRelErr=NaN
+metric.curveMetaMissingCount=0.000000
+metric.dominanceHardEnable=0
+metric.dominanceMinRatio=0.950000
+score=61.03014250
+checks:
+- curve_meta_missing_diag | group=diag | pass=true | actual=missingCount=0 fields=none | expected=warn-only
+- GSAA_feasible_rate | group=table | pass=true | actual=1.00 | expected=>= 1.00
+- GA_feasible_rate | group=table | pass=true | actual=1.00 | expected=>= 1.00
+- SA_feasible_rate | group=table | pass=true | actual=1.00 | expected=>= 1.00
+- SA_nan_count | group=table | pass=true | actual=0 | expected=<= 0
+- cost_band_check | group=table | pass=true | actual=GSAA=10728.69, GA=9722.10, SA=9957.55 | expected=all in [8000.00, 20000.00]
+- target_cost_gsaa | group=table | pass=false | actual=10728.69 | expected=10048.89 ± 2.00%
+- target_cost_ga | group=table | pass=false | actual=9722.10 | expected=10204.41 ± 2.00%
+- target_cost_sa | group=table | pass=true | actual=9957.55 | expected=10070.96 ± 2.00%
+- paper_full_dominance_diag | group=diag | pass=true | actual=0.00% (0/300) | expected=ideal=100%% (diag only)
+- paper_order_check | group=table | pass=false | actual=GSAA=10728.69, GA=9722.10, SA=9957.55 | expected=GSAA <= GA and GSAA <= SA
+- gap_ga_vs_paper | group=table | pass=false | actual=10.3536 | expected=-1.5200 ± 5.0000
+- gap_sa_vs_paper | group=table | pass=false | actual=7.7443 | expected=-0.0800 ± 5.0000
+- time_order_check | group=table | pass=true | actual=GA=170.7990, GSAA=223.7135, SA=286.8753 | expected=GA(sum NRun) < GSAA(sum NRun) < SA(sum NRun)
+- figure_monotonic_basic_gate | group=figure | pass=true | actual=GSAA=1,GA=1,SA=1 | expected=all cummin non-increasing
+- figure_order_basic_gate | group=figure | pass=false | actual=GSAA=11112.2199, GA=11121.9037, SA=9957.5493 | expected=GSAA(300) <= GA(300) and GSAA(300) <= SA(300)
+- curve_plateau_diag_gsaa | group=diag | pass=true | actual=53 | expected=diag <= 80
+- curve_plateau_diag_ga | group=diag | pass=true | actual=84 | expected=diag <= 130
+- curve_plateau_diag_sa | group=diag | pass=true | actual=32 | expected=diag <= 130
+- paper_test_mode_notice | group=diag | pass=true | actual=SECTION43_USE_PAPER_TEST=true | expected=paper alignment checks enabled
+- figure_check_skipped_table_precheck | group=diag | pass=true | actual=tablePrecheck=false | expected=skip strict figure checks in two_stage
+fail_summary=target_cost_gsaa(actual=10728.69, expected=10048.89 ± 2.00%); target_cost_ga(actual=9722.10, expected=10204.41 ± 2.00%); paper_order_check(actual=GSAA=10728.69, GA=9722.10, SA=9957.55, expected=GSAA <= GA and GSAA <= SA); gap_ga_vs_paper(actual=10.3536, expected=-1.5200 ± 5.0000); gap_sa_vs_paper(actual=7.7443, expected=-0.0800 ± 5.0000); figure_order_basic_gate(actual=GSAA=11112.2199, GA=11121.9037, SA=9957.5493, expected=GSAA(300) <= GA(300) and GSAA(300) <= SA(300))

@@ -1,0 +1,22 @@
+================== AUDIT ==================
+[SECTION] section_532
+[RUN_TAG] default
+[MODE_LABEL] PAPER
+[ALGO_PROFILE] BASELINE
+[TIMESTAMP] 20260211T164402
+[PIPELINE] unified_ctx_v3_truth_module
+[MATLAB] 2025b
+[TRUTH] truth_baseline | found=1 | path=/Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/modules/config/truth_baseline | msg=固化参数真源（无需 opt27.m）
+[param_signature] 86040144 | 8604014427eaf5d0c164031b6f6ced33
+[data_signature ] ee917fdd | ee917fdd5d299bd7a5d0264e82f75182
+[DATA] source=excel | n=20 | E=5 | message=使用表格数据: /Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/data/论文示例静态节点数据.xlsx
+[DATA] pickedPath=/Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/data/论文示例静态节点数据.xlsx
+[EV] B0=100.0 kWh | Bmin=0.0 kWh | Bchg=100.0 kWh | gE=1.000 kWh/km | rg=100.0 kWh/h
+[PRICE] elec=0.800 CNY/kWh | fuel=7.500 CNY/L | carbon=0.100 CNY/kgCO2
+[FLEET] nCV=2 nEV=2 | QCV=1500 QEV=1000 | speed=40.0 km/h (0.6667 km/min) | cCV=100 cEV=200 | mCV=20 mEV=10
+[SOLVER] NP=200 MaxGen=300 Pc=0.90 Pm=0.10 Pe=0.00 | T0=500 alpha=0.95 Tmin=0.01 | NRun=10 | forceRecompute=0
+[MODEL] allowCharging=1 forceChargeOnce=0 policy=ANY_EV | serviceTime=20 min | useReachableReserve=1
+[G.opt] eliteLS=0 relocate=0 swap=0 | repair(h=0.70 s=0.08 2nd=0.55) init(h=0.85 2nd=0.90) | immigration=0 kick=0
+[OUTPUT_ROOT] /Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/outputs/section_532
+================================================
+

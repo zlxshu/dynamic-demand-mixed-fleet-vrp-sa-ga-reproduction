@@ -1,0 +1,215 @@
+[rng] mode=paper_repro | seed=1 | alg=twister
+[paper_data] static exists: /Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/data/论文示例静态节点数据.xlsx
+[paper_data] dynamic exists: /Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/data/论文示例动态需求数据.xlsx
+[data_base] policy=prefer_data | source=paper_xlsx | path=/Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/data/论文示例静态节点数据.xlsx
+[paper_override] Fleet.nCV/nEV: 2/2 -> 5/5 (section_541 paper_repro)
+[events_xlsx] /Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/data/论文示例动态需求数据.xlsx
+[window] recvWindow=[480,600] min | note=paper_default
+[updates] count=4 | qKg=500 | TMin=30
+[u1] t=510min | reason=timer | events=2 | qSum=481/500 | T=30
+  q: cid=21 | type=add | delta=NaN | contrib=223
+  q: cid=22 | type=add | delta=NaN | contrib=258
+[u2] t=540min | reason=timer | events=3 | qSum=243/500 | T=30
+  q: cid=2 | type=cancel | delta=-204 | contrib=0
+  q: cid=4 | type=update | delta=-35 | contrib=0
+  q: cid=23 | type=add | delta=NaN | contrib=243
+[u3] t=570min | reason=timer | events=1 | qSum=246/500 | T=30
+  q: cid=24 | type=add | delta=NaN | contrib=246
+[u4] t=600min | reason=window_end | events=2 | qSum=251/500 | T=30
+  q: cid=25 | type=add | delta=NaN | contrib=251
+  q: cid=14 | type=cancel | delta=-255 | contrib=0
+[paper_repro][init] source=section_531 (ctxInit fleet=CV2_EV2)
+[paper_repro][init_check] MISMATCH: k=1 route mismatch: got=0-6-14-5-9-8-1-0 | paper=0-15-13-12-11-2-4-0
+[paper_repro] expand init plan slots: CV2_EV2 -> CV5_EV5 (keep routes, only pad/shift EV slots)
+[u1] tNow=08:30 | batch=2 events | cancelFail=0
+  [event] add: cid=21 | demand=223
+  [event] add: cid=22 | demand=258
+[pressure] batchDelta: add/update net=0 | pos=0 | neg=0 | cancelNet=0
+[pressure] note: frozen segment is immutable; paper_repro uses departure-load capacity semantics to drive whether new vehicles are needed.
+[pressure] CV1(k=1, wait) cap=1500 | committed=214kg(n=1) | pending=0kg(n=0) | capLeftAfterCommitted=1286
+[pressure] CV2(k=2, travel) cap=1500 | committed=216kg(n=1) | pending=607kg(n=3) | capLeftAfterCommitted=1284
+[pressure] CV3(k=3, not_started) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV4(k=4, not_started) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV5(k=5, not_started) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] EV1(k=6, travel) cap=1000 | committed=231kg(n=1) | pending=413kg(n=2) | capLeftAfterCommitted=769
+[pressure] EV2(k=7, travel) cap=1000 | committed=0kg(n=0) | pending=215kg(n=1) | capLeftAfterCommitted=1000
+[pressure] EV3(k=8, not_started) cap=1000 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1000
+[pressure] EV4(k=9, not_started) cap=1000 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1000
+[pressure] EV5(k=10, not_started) cap=1000 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1000
+[t=08:30][fleet_pool] base=CV5_EV5 | maxExtraCV=0 maxExtraEV=0 -> pool=CV5_EV5
+[t=08:30][gsaa] NRun=10 | parallel=1(workers=8) | logLevel=detailed | reason=parallel_pool_ready
+[t=08:30][gsaa][run 1/10] seed=1
+  [初始化] strictFeasible=51.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11102.046578 | penaltyBest=11102.046578 | elapsed=83.251239s
+[t=08:30][gsaa][run 2/10] seed=2
+  [初始化] strictFeasible=52.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=10928.129588 | penaltyBest=10928.129588 | elapsed=83.706885s
+[t=08:30][gsaa][run 3/10] seed=3
+  [初始化] strictFeasible=46.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=10816.914623 | penaltyBest=10816.914623 | elapsed=84.097492s
+[t=08:30][gsaa][run 4/10] seed=4
+  [初始化] strictFeasible=58.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11643.396579 | penaltyBest=11643.396579 | elapsed=80.926332s
+[t=08:30][gsaa][run 5/10] seed=5
+  [初始化] strictFeasible=56.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=10849.706161 | penaltyBest=10849.706161 | elapsed=82.862919s
+[t=08:30][gsaa][run 6/10] seed=6
+  [初始化] strictFeasible=46.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=12001.541729 | penaltyBest=12001.541729 | elapsed=81.244601s
+[t=08:30][gsaa][run 7/10] seed=7
+  [初始化] strictFeasible=51.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11176.623874 | penaltyBest=11176.623874 | elapsed=82.307711s
+[t=08:30][gsaa][run 8/10] seed=8
+  [初始化] strictFeasible=46.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=10899.330642 | penaltyBest=10899.330642 | elapsed=83.162183s
+[t=08:30][gsaa][run 9/10] seed=9
+  [初始化] strictFeasible=43.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=10816.914623 | penaltyBest=10816.914623 | elapsed=29.265724s
+[t=08:30][gsaa][run 10/10] seed=10
+  [初始化] strictFeasible=54.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11593.118981 | penaltyBest=11593.118981 | elapsed=27.673179s
+[t=08:30][fleet_used] used=CV2_EV4 (pool=CV5_EV5)
+[u2] tNow=09:00 | batch=3 events | cancelFail=0
+  [event] cancel: cid=2
+  [event] changeFail: cid=4 | reason=already_served_or_started | tStartService=538.46(08:58) | newDemand=180
+  [event] add: cid=23 | demand=243
+[pressure] batchDelta: add/update net=-35 | pos=0 | neg=-35 | cancelNet=-204
+[pressure] note: frozen segment is immutable; paper_repro uses departure-load capacity semantics to drive whether new vehicles are needed.
+[pressure] CV1(k=1, wait) cap=1500 | committed=214kg(n=1) | pending=0kg(n=0) | capLeftAfterCommitted=1286
+[pressure] CV2(k=2, travel) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV3(k=3, not_started) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV4(k=4, not_started) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV5(k=5, not_started) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] EV1(k=6, service) cap=1000 | committed=0kg(n=0) | pending=209kg(n=2) | capLeftAfterCommitted=1000
+[pressure] EV2(k=7, charge) cap=1000 | committed=0kg(n=0) | pending=223kg(n=1) | capLeftAfterCommitted=1000
+[pressure] EV3(k=8, travel) cap=1000 | committed=189kg(n=1) | pending=676kg(n=3) | capLeftAfterCommitted=811
+[pressure] EV4(k=9, service) cap=1000 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1000
+[pressure] EV5(k=10, not_started) cap=1000 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1000
+[t=09:00][fleet_pool] base=CV5_EV5 | maxExtraCV=0 maxExtraEV=0 -> pool=CV5_EV5
+[t=09:00][gsaa] NRun=10 | parallel=1(workers=8) | logLevel=detailed | reason=parallel_pool_ready
+[t=09:00][gsaa][run 1/10] seed=1
+  [初始化] strictFeasible=26.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11354.527273 | penaltyBest=11354.527273 | elapsed=58.517089s
+[t=09:00][gsaa][run 2/10] seed=2
+  [初始化] strictFeasible=23.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=10820.228651 | penaltyBest=10820.228651 | elapsed=58.640402s
+[t=09:00][gsaa][run 3/10] seed=3
+  [初始化] strictFeasible=32.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11418.936627 | penaltyBest=11418.936627 | elapsed=57.206727s
+[t=09:00][gsaa][run 4/10] seed=4
+  [初始化] strictFeasible=35.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11465.689683 | penaltyBest=11465.689683 | elapsed=58.918007s
+[t=09:00][gsaa][run 5/10] seed=5
+  [初始化] strictFeasible=31.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=10904.408154 | penaltyBest=10904.408154 | elapsed=57.631890s
+[t=09:00][gsaa][run 6/10] seed=6
+  [初始化] strictFeasible=37.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11194.506102 | penaltyBest=11194.506102 | elapsed=57.286316s
+[t=09:00][gsaa][run 7/10] seed=7
+  [初始化] strictFeasible=36.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11354.527273 | penaltyBest=11354.527273 | elapsed=58.619880s
+[t=09:00][gsaa][run 8/10] seed=8
+  [初始化] strictFeasible=37.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=10669.330708 | penaltyBest=10669.330708 | elapsed=57.475544s
+[t=09:00][gsaa][run 9/10] seed=9
+  [初始化] strictFeasible=35.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11709.793577 | penaltyBest=11709.793577 | elapsed=23.271731s
+[t=09:00][gsaa][run 10/10] seed=10
+  [初始化] strictFeasible=36.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11856.602711 | penaltyBest=11856.602711 | elapsed=22.971195s
+[t=09:00][fleet_used] used=CV2_EV4 (pool=CV5_EV5)
+[u3] tNow=09:30 | batch=1 events | cancelFail=0
+  [event] add: cid=24 | demand=246
+[pressure] batchDelta: add/update net=0 | pos=0 | neg=0 | cancelNet=0
+[pressure] note: frozen segment is immutable; paper_repro uses departure-load capacity semantics to drive whether new vehicles are needed.
+[pressure] CV1(k=1, service) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV2(k=2, travel) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV3(k=3, not_started) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV4(k=4, not_started) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV5(k=5, not_started) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] EV1(k=6, travel) cap=1000 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1000
+[pressure] EV2(k=7, charge) cap=1000 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1000
+[pressure] EV3(k=8, travel) cap=1000 | committed=189kg(n=1) | pending=676kg(n=3) | capLeftAfterCommitted=811
+[pressure] EV4(k=9, travel) cap=1000 | committed=223kg(n=1) | pending=452kg(n=2) | capLeftAfterCommitted=777
+[pressure] EV5(k=10, not_started) cap=1000 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1000
+[t=09:30][fleet_pool] base=CV5_EV5 | maxExtraCV=0 maxExtraEV=0 -> pool=CV5_EV5
+[t=09:30][gsaa] NRun=10 | parallel=1(workers=8) | logLevel=detailed | reason=parallel_pool_ready
+[t=09:30][gsaa][run 1/10] seed=1
+  [初始化] strictFeasible=8.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=12033.241540 | penaltyBest=12033.241540 | elapsed=38.589566s
+[t=09:30][gsaa][run 2/10] seed=2
+  [初始化] strictFeasible=9.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11285.474583 | penaltyBest=11285.474583 | elapsed=41.568040s
+[t=09:30][gsaa][run 3/10] seed=3
+  [初始化] strictFeasible=8.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11226.732090 | penaltyBest=11226.732090 | elapsed=40.014949s
+[t=09:30][gsaa][run 4/10] seed=4
+  [初始化] strictFeasible=9.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=13046.888500 | penaltyBest=13046.888500 | elapsed=38.693552s
+[t=09:30][gsaa][run 5/10] seed=5
+  [初始化] strictFeasible=8.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11787.108737 | penaltyBest=11787.108737 | elapsed=39.816510s
+[t=09:30][gsaa][run 6/10] seed=6
+  [初始化] strictFeasible=14.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11539.536108 | penaltyBest=11539.536108 | elapsed=40.653637s
+[t=09:30][gsaa][run 7/10] seed=7
+  [初始化] strictFeasible=10.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11787.108737 | penaltyBest=11787.108737 | elapsed=40.262367s
+[t=09:30][gsaa][run 8/10] seed=8
+  [初始化] strictFeasible=8.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=12073.990445 | penaltyBest=12073.990445 | elapsed=40.533507s
+[t=09:30][gsaa][run 9/10] seed=9
+  [初始化] strictFeasible=14.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=12662.558300 | penaltyBest=12662.558300 | elapsed=22.489494s
+[t=09:30][gsaa][run 10/10] seed=10
+  [初始化] strictFeasible=9.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11489.018550 | penaltyBest=11489.018550 | elapsed=22.174898s
+[t=09:30][fleet_used] used=CV2_EV5 (pool=CV5_EV5)
+[u4] tNow=10:00 | batch=2 events | cancelFail=1
+  [event] add: cid=25 | demand=251
+  [event] cancelFail: cid=14 | tNow=600(10:00) | reason=already_served_or_started | tStartService=107.507(01:48)
+[pressure] batchDelta: add/update net=0 | pos=0 | neg=0 | cancelNet=-255
+[pressure] note: frozen segment is immutable; paper_repro uses departure-load capacity semantics to drive whether new vehicles are needed.
+[pressure] CV1(k=1, travel) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV2(k=2, done) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV3(k=3, not_started) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV4(k=4, not_started) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] CV5(k=5, not_started) cap=1500 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1500
+[pressure] EV1(k=6, travel) cap=1000 | committed=0kg(n=0) | pending=0kg(n=0) | capLeftAfterCommitted=1000
+[pressure] EV2(k=7, travel) cap=1000 | committed=209kg(n=1) | pending=0kg(n=0) | capLeftAfterCommitted=791
+[pressure] EV3(k=8, service) cap=1000 | committed=0kg(n=0) | pending=676kg(n=3) | capLeftAfterCommitted=1000
+[pressure] EV4(k=9, wait) cap=1000 | committed=223kg(n=1) | pending=243kg(n=1) | capLeftAfterCommitted=777
+[pressure] EV5(k=10, travel) cap=1000 | committed=246kg(n=1) | pending=0kg(n=0) | capLeftAfterCommitted=754
+[t=10:00][fleet_pool] base=CV5_EV5 | maxExtraCV=0 maxExtraEV=0 -> pool=CV5_EV5
+[t=10:00][gsaa] NRun=10 | parallel=1(workers=8) | logLevel=detailed | reason=parallel_pool_ready
+[t=10:00][gsaa][run 1/10] seed=1
+  [初始化] strictFeasible=2.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=12722.005828 | penaltyBest=12722.005828 | elapsed=44.441158s
+[t=10:00][gsaa][run 2/10] seed=2
+  [初始化] strictFeasible=5.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=13640.762489 | penaltyBest=13640.762489 | elapsed=46.432665s
+[t=10:00][gsaa][run 3/10] seed=3
+  [初始化] strictFeasible=6.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=12722.005828 | penaltyBest=12722.005828 | elapsed=46.298785s
+[t=10:00][gsaa][run 4/10] seed=4
+  [初始化] strictFeasible=13.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=11992.102692 | penaltyBest=11992.102692 | elapsed=44.081847s
+[t=10:00][gsaa][run 5/10] seed=5
+  [初始化] strictFeasible=10.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=12162.368008 | penaltyBest=12162.368008 | elapsed=44.011006s
+[t=10:00][gsaa][run 6/10] seed=6
+  [初始化] strictFeasible=13.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=12094.316749 | penaltyBest=12094.316749 | elapsed=44.854692s
+[t=10:00][gsaa][run 7/10] seed=7
+  [初始化] strictFeasible=6.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=13852.209230 | penaltyBest=13852.209230 | elapsed=46.109821s
+[t=10:00][gsaa][run 8/10] seed=8
+  [初始化] strictFeasible=6.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=12914.015635 | penaltyBest=12914.015635 | elapsed=45.452287s
+[t=10:00][gsaa][run 9/10] seed=9
+  [初始化] strictFeasible=4.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=13640.762489 | penaltyBest=13640.762489 | elapsed=23.657654s
+[t=10:00][gsaa][run 10/10] seed=10
+  [初始化] strictFeasible=7.000000 | firstFeasibleGen=0.000000 | stopGen=211.000000
+  [结果] feasible=1 | best=12722.005828 | penaltyBest=12722.005828 | elapsed=23.254939s
+[t=10:00][fleet_used] used=CV2_EV5 (pool=CV5_EV5)

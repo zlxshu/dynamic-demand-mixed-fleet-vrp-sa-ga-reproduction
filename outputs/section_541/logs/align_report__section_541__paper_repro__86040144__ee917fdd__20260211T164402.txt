@@ -1,0 +1,26 @@
+[paper_override] Fleet.nCV/nEV: 2/2 -> 5/5 (section_541 paper_repro)
+[paper_repro][init_check] MISMATCH: k=1 route mismatch: got=0-6-14-5-9-8-1-0 | paper=0-15-13-12-11-2-4-0
+[validate] Mode=paper_repro
+[validate] recvWindow=[480,600] | q=500 | T=30
+[validate] dataPolicy=prefer_data
+[validate] paperStatic=/Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/data/论文示例静态节点数据.xlsx
+[validate] paperEvents=/Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/data/论文示例动态需求数据.xlsx
+[validate] NRun=10
+[validate] events=8 | updates=4
+[validate] updateCount=4 (paper-like)
+[validate] note: paper narrates dispatching an EV at the first update to serve customers 21/22; treat as phenomenon unless the paper states a hard rule.
+[validate] artifacts: OK
+[validate] cancelFail: 1
+  - cancelFail: cid=14 | tNow=600(10:00) | reason=already_served_or_started | tStartService=107.507(01:48)
+[validate] cancelEventsInFile=2
+  - cancel: cid=2 | tAppear=515(08:35) | delta=-204
+  - cancel: cid=14 | tAppear=590(09:50) | delta=-255
+[validate] cancelBoundaryPerUpdate:
+  - u02 tNow=540(09:00) cancel cid=2 | tStartService=600(10:00) | expectedFail=0 actualFail=0
+  - u04 tNow=600(10:00) cancel cid=14 | tStartService=107.507(01:48) | expectedFail=1 actualFail=1
+[validate] fleetAndKeyCustomersPerUpdate:
+  - u01 tNow=510(08:30) | feasible=1 | usedFleet=CV2_EV4 | served(21)=1 served(22)=1
+  - u02 tNow=540(09:00) | feasible=1 | usedFleet=CV2_EV4 | served(21)=1 served(22)=1
+  - u03 tNow=570(09:30) | feasible=1 | usedFleet=CV2_EV5 | served(21)=1 served(22)=1
+  - u04 tNow=600(10:00) | feasible=1 | usedFleet=CV2_EV5 | served(21)=1 served(22)=1
+[validate] outputsRoot=/Volumes/移动硬盘（512G）/USST/上海理工大学/双碳背景下多能源混合车队的车辆路径研究/测试/程序/Qiu_By_Rayzo_OpenSource/outputs/section_541

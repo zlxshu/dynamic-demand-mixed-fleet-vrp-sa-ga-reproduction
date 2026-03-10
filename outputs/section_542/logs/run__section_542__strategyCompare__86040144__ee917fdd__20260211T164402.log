@@ -1,0 +1,2 @@
+[section_542][baseline] optimizing pending customers with GSAA: [21;22;23;24;25]
+[section_542][baseline] policy=dispatch_only_from_531 | base=CV2_EV2 | extra=CV0_EV2 | pending=5 | used=CV2_EV4
